@@ -2,9 +2,9 @@ import { google } from 'googleapis';
 
 export interface User {
   uid: string;
-  username: string;
-  dateLastPaid: string; // ISO string representation
-  quantityLastSent: string;
+  username: string | null;
+  dateLastPaid: string | null; // ISO string representation
+  quantityLastSent: string | null;
 }
 
 export async function fetchValidGoogleSheetUsers(): Promise<
@@ -44,9 +44,9 @@ export async function fetchValidGoogleSheetUsers(): Promise<
 
     const users: User[] = rows.slice(1).map((row) => ({
       uid: row[0],
-      username: row[1],
-      dateLastPaid: row[2],
-      quantityLastSent: row[3],
+      username: row[1] || null,
+      dateLastPaid: row[2] || null,
+      quantityLastSent: row[3] || null,
     }));
 
     return filterUsers(users);
@@ -60,7 +60,7 @@ function filterUsers(users: User[]) {
   const now = new Date();
   // Figure out when the user last paid, and use the quanity they sent, for now we'll just last paid date
   const filteredUsers = users.filter(
-    (user) => new Date(user.dateLastPaid) <= now
+    (user) => user.dateLastPaid && new Date(user.dateLastPaid) <= now
   );
   return filteredUsers;
 }

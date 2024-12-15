@@ -4,14 +4,9 @@ import TelegramBot from 'node-telegram-bot-api';
 // Function to send the contract address to all user IDs
 export const sendContractAddress = async (
   contractAddress: string,
-  users: User[]
+  users: User[],
+  ronBot: TelegramBot
 ) => {
-  const ronBotToken = process.env.BOTTOKEN;
-  if (!ronBotToken) {
-    console.log('invalid bot token');
-    return;
-  }
-  const ronBot = new TelegramBot(ronBotToken, { polling: false });
   for (const user of users) {
     try {
       console.log(user.uid);
