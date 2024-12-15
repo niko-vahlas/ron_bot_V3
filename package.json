@@ -5,10 +5,12 @@
   "repository": "https://github.com/niko-vahlas/ron_bot_V3.git",
   "author": "Nikolas Vahlas <nikolasvahlas@nikolasvahlas.com>",
   "license": "MIT",
+  "type": "module",
   "devDependencies": {
     "@types/node": "^22.10.2",
     "@types/node-cron": "^3.0.11",
     "@types/node-telegram-bot-api": "^0.64.7",
+    "cpx": "^1.5.0",
     "typescript": "^5.7.2"
   },
   "scripts": {

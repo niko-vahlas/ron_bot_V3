@@ -52,7 +52,7 @@ function filterUsers(users: User[]) {
   const now = new Date();
   // Figure out when the user last paid, and use the quanity they sent, for now we'll just last paid date
   const filteredUsers = users.filter(
-    (user) => new Date(user.dateLastPaid) >= now
+    (user) => new Date(user.dateLastPaid) <= now
   );
   return filteredUsers;
 }
