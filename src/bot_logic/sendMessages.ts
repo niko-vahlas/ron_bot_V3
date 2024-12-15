@@ -14,6 +14,7 @@ export const sendContractAddress = async (
   const ronBot = new TelegramBot(ronBotToken, { polling: false });
   for (const user of users) {
     try {
+      console.log(user.uid);
       await ronBot.sendMessage(
         user.uid,
         `Hello! The current contract address is: ${contractAddress}`

@@ -1,7 +1,11 @@
 import * as fs from 'fs/promises';
+import path from 'path';
+import { fileURLToPath } from 'url';
 
 export async function appendToCoinsSeen(contractAddresses: Set<string>) {
-  const filePath = '../contract_addresses_seen.json';
+  const __filename = fileURLToPath(import.meta.url);
+  const __dirname = path.dirname(__filename);
+  const filePath = path.resolve(__dirname, '../contract_addresses_seen.json');
 
   try {
     let currentContent;

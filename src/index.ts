@@ -26,13 +26,11 @@ async function main() {
 
   let users: User[] = [];
 
-  (() => {
-    cron.schedule('* * * * * *', async () => {
-      const tempUsers = await fetchValidGoogleSheetUsers();
-      users = tempUsers ? tempUsers : users;
-      console.log('Daily cron job running at midnight');
-    });
-  })();
+  cron.schedule('* * * * *', async () => {
+    const tempUsers = await fetchValidGoogleSheetUsers();
+    users = tempUsers ? tempUsers : users;
+    console.log('Daily cron job running at midnight');
+  });
 
   while (true) {
     const currentContractAddress: string | null = await getContractAddress();

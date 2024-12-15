@@ -5,4 +5,4 @@ build/
 .DS_Store
 .vscode/
 package-lock.json
-src/ron-bot-v3-bda2430e12e4.json
+ron-bot-v3-bda2430e12e4.json
