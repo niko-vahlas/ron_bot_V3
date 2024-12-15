@@ -7,6 +7,8 @@
   "license": "MIT",
   "devDependencies": {
     "@types/node": "^22.10.2",
+    "@types/node-cron": "^3.0.11",
+    "@types/node-telegram-bot-api": "^0.64.7",
     "typescript": "^5.7.2"
   },
   "scripts": {
@@ -14,5 +16,11 @@
     "postbuild": "cpx 'src/notification_logic/*.py' dist/notification_logic/",
     "clean": "rm -rf dist",
     "start": "node dist/index.js"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.7",
+    "googleapis": "^144.0.0",
+    "node-cron": "^3.0.3",
+    "node-telegram-bot-api": "^0.66.0"
   }
 }
