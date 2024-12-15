@@ -8,7 +8,6 @@ import {
   fetchValidGoogleSheetUsers,
   User,
 } from './user_logic/fetchValidGoogleSheetUsers.js';
-import TelegramBot from 'node-telegram-bot-api';
 import { sendContractAddress } from './bot_logic/sendMessages.js';
 import { appendToCoinsSeen } from './write_coins_seen.js';
 
